@@ -1,10 +1,21 @@
 import os, re, shutil, psutil, requests
 
-RBXPath = os.getenv("LOCALAPPDATA") + "\\Roblox\\logs"
+def is_process_running(process_name):
+    for proc in psutil.process_iter(['name']):
+        if proc.info['name'] and process_name.lower() in proc.info['name'].lower():
+            return True
+    return False
+
+if is_process_running("Bloxstrap.exe"):
+ print("Bloxstrap Detected")
+ RBXPath = os.getenv("LOCALAPPDATA") + "\\Bloxstrap\\logs"
+else:
+ print("Bloxstrap Detected")
+ RBXPath = os.getenv("LOCALAPPDATA") + "\\Roblox\\logs"
 RENDER_VIEW_PATTERN = r"\[FLog::SurfaceController\] SurfaceController\[_:\d\]::initialize view\([A-F0-9]{16}\)"
 
-Version = "9.0"
-ExecName = "Savage"
+Version = "6.9"
+ExecName = "White Cat"
 InternalUI = "false"
 
 class Offsets:
