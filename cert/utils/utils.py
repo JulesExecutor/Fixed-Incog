@@ -1,16 +1,16 @@
 import os, re, shutil, psutil, requests
 
-def is_process_running(process_name):
-    for proc in psutil.process_iter(['name']):
-        if proc.info['name'] and process_name.lower() in proc.info['name'].lower():
-            return True
-    return False
+print("""
+Choose:
+1) Bloxstrap
+2) Roblox
+"""
 
-if is_process_running("Bloxstrap.exe"):
- print("Bloxstrap Detected")
+should = input("Choose: ")
+
+if should == "1":
  RBXPath = os.getenv("LOCALAPPDATA") + "\\Bloxstrap\\logs"
 else:
- print("Bloxstrap Detected")
  RBXPath = os.getenv("LOCALAPPDATA") + "\\Roblox\\logs"
 RENDER_VIEW_PATTERN = r"\[FLog::SurfaceController\] SurfaceController\[_:\d\]::initialize view\([A-F0-9]{16}\)"
 
