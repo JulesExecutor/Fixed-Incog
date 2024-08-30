@@ -24,7 +24,7 @@ class Offsets:
     BytecodeSize = 0xA8
     Bytecode = {
         "LocalScript": 0x1B8,
-        "ModuleScript": 0x150
+        "ModuleScript": 0x158
     }
 
 Capabilities = {
